@@ -5,7 +5,7 @@ import { Todos } from "./types";
 
 const ACTION_NAMESPACE = "todos" 
 
-export const todoListAsync = createAsyncThunk<{payload:Array<Todos>},
+export const todoListAsync = createAsyncThunk<Array<Todos>,
  {},  {
   dispatch: AppDispatch
   state: RootState

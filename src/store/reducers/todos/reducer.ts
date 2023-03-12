@@ -14,9 +14,8 @@ export const initialTodosState: TodosState = {
 
 export const todosReducer = createReducer(initialTodosState, (builder) => {
     builder
-        .addCase(todoListAsync.fulfilled, (state, { payload }) => {
-            debugger
-            state.TodosList = payload.data;
+        .addCase(todoListAsync.fulfilled, (state,action) => {
+            state.TodosList = action.payload;
         })
         .addCase(todoListAsync.rejected, (state, action) => {
             state.TodosList = initialTodosState.TodosList
