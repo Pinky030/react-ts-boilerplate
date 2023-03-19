@@ -1,9 +1,9 @@
 export interface TodosState {
-    TodosList: Array<Todos>,
-    Todos: Todos
+    TodosList: Array<Todo>,
+    Todos: Todo
 }
 
-export interface Todos {
+export interface Todo {
     userId: number,
     id: number,
     title: string,

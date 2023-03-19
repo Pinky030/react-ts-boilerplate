@@ -1,7 +1,10 @@
 import { unwrapResult } from '@reduxjs/toolkit';
 import React, { useEffect } from 'react'
+import AddTodo from '../component/AddTodo';
+import TodoItem from '../component/TodoItem';
 import { useAppDispatch, useAppSelector } from '../store/hook';
 import { todoListAsync } from '../store/reducers/todos/actions';
+import { Todo } from '../store/reducers/todos/types';
 
 export default function TodosContainer() {
   const dispatch = useAppDispatch();
@@ -11,7 +14,7 @@ export default function TodosContainer() {
     getTodoList()
   }, [])
 
-  useEffect(()=>{console.log(TodosList)},[TodosList])
+  useEffect(()=> {console.log(TodosList)},[TodosList])
 
   const getTodoList = () => {
     dispatch(todoListAsync({}))
@@ -22,6 +25,9 @@ export default function TodosContainer() {
   }
 
   return (
-    <div>todosContainer</div>
+    <>
+      <AddTodo />
+      {TodosList.map((item: Todo) => <TodoItem todo={item} key={item.id} />)}
+    </>
   )
 }
